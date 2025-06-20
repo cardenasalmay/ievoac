@@ -11,10 +11,10 @@ app.secret_key = 'clave_secreta' # Necesaria para usar sesiones y flash
 
 # Configuración de conexión a la base de datos SECRET_KEY FUNDA25IEVO20
 db_config = {
-    'host': "sql5.freesqldatabase.com",
-    'user': "sql5785195",
-    'password': "CY6qTUJ8hB",
-    'database': "sql5785195"
+    'host': os.environ['DB_HOST'],
+    'user': os.environ['DB_USER'],
+    'password': os.environ['DB_PASS'],
+    'database': os.environ['DB_NAME']
 }
 
 # Establecer conexión con la base de datos
