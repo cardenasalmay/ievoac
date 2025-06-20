@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión</title>
+    <link rel="stylesheet" href="/static/css/styless.css">
+</head>
+<body>
+    <h1>PLATAFORMA INTEGRAL DE EXPEDIENTES PARA LA FUNDACIÓN I-EVO A.C. ATLACOMULCO</h1>
+    <img src="/static/img/ievo.png" alt="Logo Fundación" width="200">
+
+    
+    <div class="login-container">
+        <form action="{{ url_for('login') }}" method="POST">
+            <select name="tipo_usuario" required>
+                <option value="">Selecciona el tipo de usuario</option>
+                <option value="administrador">Administrador</option>
+                <option value="invitado">Invitado</option>
+            </select>
+            <input type="text" name="nombre" placeholder="Usuario" required>
+            <input type="password" name="contrasena" placeholder="Contraseña" required>
+            <button type="submit">Iniciar sesión</button>
+        </form>
+    </div>
+
+    
+</body>
+</html>
+
+
+

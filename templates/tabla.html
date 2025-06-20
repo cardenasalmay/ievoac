@@ -1,0 +1,78 @@
+{% include 'encabezado.html' %}
+<h2>Consultar registros de Expedientes</h2>
+
+<form method="POST" action="{{ url_for('consultar') }}">
+    <input type="text" name="filtro" placeholder="Buscar por nombre o CURP" required>
+    <button type="submit">Buscar</button>
+    <a href="{{ url_for('consultar') }}" class="boton-limpiar">
+        <img src="{{ url_for('static', filename='img/recargar.png') }}" alt="Limpiar" class="icono-limpiar">
+    </a>
+    
+</form>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>CURP</th>
+            <th>Fecha de Nacimiento</th>
+            <th>Edad</th>
+            <th>Talla</th>
+            <th>Sexo</th>
+            <th>Status</th>
+            <th>Tutor</th>
+            <th>Domicilio</th>
+            <th>Teléfono</th>
+            <th>Diagnóstico</th>
+            <th>Hospital</th>
+            <th>Archivo PDF</th>
+            <th>Fecha Registro</th>
+            <th colspan="2">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for expediente in expedientes %}
+        <tr>
+            <td>{{ expediente[0] }}</td>
+            <td>{{ expediente[1] }}</td>
+            <td>{{ expediente[2] }}</td>
+            <td>{{ expediente[3] }}</td>
+            <td>{{ expediente[4] }}</td>
+            <td>{{ expediente[5] }}</td>
+            <td>{{ expediente[6] }}</td>
+            <td>{{ expediente[7] }}</td>
+            <td>{{ expediente[8] }}</td>
+            <td>{{ expediente[9] }}</td>
+            <td>{{ expediente[10] }}</td>
+            <td>{{ expediente[11] }}</td>
+            <td>{{ expediente[12] }}</td>
+            
+            <td>
+                <a href="/static/pdf/{{ expediente[13] }}" target="_blank">
+                    <img src="{{ url_for('static', filename='img/archpdf.png') }}" alt="PDF" class="icono-limpiar">
+                </a>
+            </td>
+            <td>{{ expediente[14] }}</td>
+            <td>
+                {% if session['usuario'] == 'admin' %}
+                    <a href="{{ url_for('eliminar', id=expediente[0]) }}">
+                        <img src="{{ url_for('static', filename='img/borrar.png') }}" alt="Borrar" class="icono-limpiar">
+                    </a>
+                {% endif %}
+            </td>
+
+            <td>
+                <a href="/editareg/{{ expediente[0] }}">
+                    <img src="{{ url_for('static', filename='img/editar.png') }}" alt="Editar" class="icono-limpiar">
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+</script>
+</body>
+</html>

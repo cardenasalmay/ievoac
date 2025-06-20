@@ -1,0 +1,168 @@
+/* LOGIN */
+body {
+    background-color: #33ccff;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+.login-container {
+    margin-top: 50px auto;
+}
+input, select, button {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+}
+
+h2 {
+    background-color: #33ccff;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+}
+/* 
+}
+
+.navbar-links img {
+    width: 45px;
+    height: 45px;
+}
+
+.container {
+    width: 95%;
+    margin-top: 100px;
+    padding: 20px;
+    border-radius: 10px;
+    background: white;
+    text-align: center;
+}
+
+.title {
+    color: #e4388b;
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    gap: 10px;
+}
+
+input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    flex: 1;
+}
+
+button {
+    background-color: #55e438;
+    color: rgb(9, 9, 9);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    flex: 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 5px;
+    text-align: center;
+    font-size: 14px;
+}
+
+th {
+    background-color: #e4388b;
+    color: white;
+}
+
+.actions img {
+    width: 30px;
+    height: 30px;
+}
+
+/*EXPEDIENTE/
+        body {
+            background-color: #00BFFF;
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: white;
+        }
+
+        .header img {
+            height: 40px;
+        }
+
+        .nav-links a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: white;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #e0e0e0;
+        }
+
+        .status-btns {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-icon {
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+
+        .filters {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .filters label {
+            margin: 0 10px;
+        }
+
+        .report-section {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        select, button {
+            padding: 6px;
+            font-size: 14px;
+            margin: 0 10px;
+        }

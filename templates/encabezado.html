@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Expedientes</title>
+    <link rel="stylesheet" href="/static/css/styles1.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo"> 
+                <img src="/static/img/niños.png" alt="Logo" class="logo">
+                <span class="navbar-title">Vivir Es Sin Límites</span>
+            </div>
+
+            
+            <div class="navbar-links">
+                <a href="/registro"><img src="/static/img/registrar.png" alt="Registrar"></a>
+                <a href="/consultar"><img src="/static/img/ver.png" alt="Consultar"></a>
+                <a href="/greportes"><img src="/static/img/greporte.png" alt="Reportes"></a>
+                <a href="/"><img src="/static/img/salirs.png" alt="Salir"></a>
+            </div>
+            
+        </div>
+    </nav>
+
+
+
+    {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class="flashes">
+      {% for message in messages %}
+        <li style="color: red;">{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}

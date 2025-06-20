@@ -1,0 +1,55 @@
+{% include 'encabezado.html' %}
+
+    <h2>Editar Registro de Expediente</h2>
+    <form method="POST" action="{{ url_for('actualizar', id=expediente[0]) }}" enctype="multipart/form-data">
+        <input type="text" name="nombre" value="{{ expediente[1] }}" required placeholder="Nombre">
+        <input type="text" name="curp" value="{{ expediente[2] }}" required placeholder="CURP">
+        <input type="date" name="fecha_nacimiento" value="{{ expediente[3] }}" required>
+        <input type="text" id="edad" value="" placeholder="Edad (se calcula automáticamente)" readonly>
+
+        <input type="text" name="talla" value="{{ expediente[5] }}" required placeholder="Talla">
+
+
+        <input type="text" name="tutor" value="{{ expediente[8] }}" required placeholder="Tutor">
+        <input type="text" name="domicilio" value="{{ expediente[9] }}" required placeholder="Domicilio">
+        <input type="text" name="telefono" value="{{ expediente[10] }}" required placeholder="Teléfono">
+        <input type="text" name="diagnostico" value="{{ expediente[11] }}" required placeholder="Diagnóstico">
+        <input type="text" name="hospital" value="{{ expediente[12] }}" required placeholder="Hospital">
+        
+        <h4>Sexo:</h4>
+        <label><input type="radio" name="sexo" value="femenino" {% if expediente[5] == 'femenino' %}checked{% endif %}> Femenino</label>
+        <label><input type="radio" name="sexo" value="masculino" {% if expediente[5] == 'masculino' %}checked{% endif %}> Masculino</label>
+
+        <h4>Status:</h4>
+        <label><input type="radio" name="status" value="activo" {% if expediente[6] == 'activo' %}checked{% endif %}> Activo</label>
+        <label><input type="radio" name="status" value="inactivo" {% if expediente[6] == 'inactivo' %}checked{% endif %}> Inactivo</label>
+
+        <br><br>
+        <label>Actualizar PDF (opcional):</label>
+        <input type="file" name="archivo_pdf" accept=".pdf">
+        <br><br>
+        <button type="submit">Actualizar</button>
+    </form>
+
+
+    <script>
+        const fechaNacimientoInput = document.querySelector('input[name="fecha_nacimiento"]');
+        const edadInput = document.getElementById('edad');
+    
+        function calcularEdad() {
+            const hoy = new Date();
+            const fechaNacimiento = new Date(fechaNacimientoInput.value);
+            let edad = hoy.getFullYear() - fechaNacimiento.getFullYear();
+            const m = hoy.getMonth() - fechaNacimiento.getMonth();
+            if (m < 0 || (m === 0 && hoy.getDate() < fechaNacimiento.getDate())) {
+                edad--;
+            }
+            edadInput.value = isNaN(edad) ? '' : edad;
+        }
+    
+        fechaNacimientoInput.addEventListener('change', calcularEdad);
+        window.addEventListener('load', calcularEdad);
+    </script>
+    
+</body>
+</html>

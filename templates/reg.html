@@ -1,0 +1,63 @@
+{% include 'encabezado.html' %}
+
+<h2>Registro de Expedientes</h2>
+    <div class="form-column">
+        <form action="/registrar" method="POST" enctype="multipart/form-data">
+            <input type="text" name="nombre" placeholder="Nombre del niño(a)" required>
+            <input type="text" name="curp" placeholder="CURP" required>
+            <input type="date" name="fecha_nacimiento" required>
+            <input type="text" id="edad" placeholder="Edad (se calcula automáticamente)" readonly>
+            <input type="text" name="talla" placeholder="Talla" required>
+            <input type="text" name="tutor" placeholder="Nombre del tutor" required>
+            <input type="text" name="domicilio" placeholder="Domicilio" required>
+            <input type="text" name="telefono" placeholder="Teléfono" required>
+            <input type="text" name="diagnostico" placeholder="Diagnóstico médico" required>
+            <input type="text" name="hospital" placeholder="Hospital" required>
+
+            <h4>Sexo:</h4>
+            <div class="sexo">
+                <label><input type="radio" name="sexo" value="femenino" required> Femenino</label>
+                <label><input type="radio" name="sexo" value="masculino" required> Masculino</label>
+            </div>
+
+            <h4>Status:</h4>
+            <div class="status">
+                <label><input type="radio" name="status" value="activo" required> Activo</label>
+                <label><input type="radio" name="status" value="inactivo" required> Inactivo</label>
+            </div>
+
+            <h4>Archivos escaneados disponibles:</h4>
+            <div class="archivos_pdf">
+                <label><input type="checkbox" name="documentos[]" value="solicitud_transparencia"> Solicitud de Transparencia</label>
+                <label><input type="checkbox" name="documentos[]" value="constancia_medica"> Constancia Médica</label>
+                <label><input type="checkbox" name="documentos[]" value="curp_tutor"> CURP Niño(a) y Tutor</label>
+            </div>
+
+            <h4 class="file-upload">Subir Archivo PDF</h4>
+            <input type="file" name="archivo_pdf" accept=".pdf" required>
+
+            <button type="submit">Registrar</button>
+        </form>
+    </div>
+
+
+
+    <script>
+        const fechaNacimientoInput = document.querySelector('input[name="fecha_nacimiento"]');
+        const edadInput = document.getElementById('edad');
+    
+        fechaNacimientoInput.addEventListener('change', () => {
+            const hoy = new Date();
+            const fechaNacimiento = new Date(fechaNacimientoInput.value);
+            let edad = hoy.getFullYear() - fechaNacimiento.getFullYear();
+            const m = hoy.getMonth() - fechaNacimiento.getMonth();
+            if (m < 0 || (m === 0 && hoy.getDate() < fechaNacimiento.getDate())) {
+                edad--;
+            }
+            edadInput.value = isNaN(edad) ? '' : edad;
+        });
+    </script>
+    
+
+</body>
+</html>

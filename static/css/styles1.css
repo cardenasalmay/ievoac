@@ -1,0 +1,252 @@
+/* Estilo general de la página */
+body {
+    background-color: #33ccff; /* Fondo azul */
+    color: #0a090a; /* Letras rosa */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Barra de navegación */
+nav {
+    background-color: #e4388b;
+    padding: 10px 20px; /* Menos padding para que no sea tan alto */
+    display: flex;
+    align-items: center; /* Centra verticalmente */
+    justify-content: space-between; /* Separa logo de links */
+}
+
+/* Contenedor general dentro del nav */
+.navbar-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+/* Área de links */
+.navbar-links {
+    display: flex;
+    gap: 15px; /* Espacio entre iconos */
+}
+
+/* Área de logo + título */
+.navbar-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Estilo para los links de navegación */
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* Iconos */
+nav img {
+    width: 60px; /* Más pequeño */
+    height: 60px;
+    object-fit: contain;
+}
+
+/* Estilo especial para el logo */
+nav .logo {
+    width: 80px;
+    height: 80px;
+}
+
+/* Título de la barra */
+.navbar-title {
+    color: white;
+    font-size: 24px;
+    font-style: italic; /* Aquí lo pones en cursiva */
+}
+/* Estilo para formularios */
+form {
+    background-color: white;
+    padding: 30px;
+    margin: 40px auto;
+    border-radius: 15px;
+    max-width: 700px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+form h2 {
+    text-align: center;
+    color: #e4388b;
+    
+}
+
+h2 {
+    text-align: center;
+    color: black;
+    font-style: italic;
+}
+
+h4 {
+    color: black;
+}
+
+/* Inputs y selects */
+input[type="text"],
+input[type="date"],
+input[type="tel"],
+select,
+input[type="file"] {
+    width: 100%;
+    padding: 12px;
+    margin: 15px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+/* Botones */
+button,
+input[type="submit"],
+input[type="button"] {
+    background-color: #55e438;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    margin-top: 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover {
+    background-color: #45c82d;
+}
+
+/* Tablas */
+table {
+    width: 95%;
+    margin: 30px auto;
+    border-collapse: collapse;
+    background-color: white;
+    font-size: 14px; /* Tamaño más pequeño de letra */
+}
+
+th, td {
+    border: 1px solid #e4388b;
+    padding: 8px;
+    text-align: center;
+    color: #0a0a0a;
+}
+
+th {
+    background-color: #33ccff;
+    font-weight: bold;
+}
+
+tr:hover {
+    background-color: #e0f7fa;
+}
+
+/* Responsive: Para pantallas pequeñas */
+@media (max-width: 768px) {
+    form {
+        width: 90%;
+        padding: 20px;
+    }
+
+    table {
+        font-size: 12px;
+    }
+}
+
+/*Boton de recargar todos los datos de registro*/
+.boton-limpiar {
+    display: inline-block;
+    padding: 0;
+    margin-left: 10px;
+}
+
+.boton-limpiar img.icono-limpiar {
+    height: 10px;
+    width: auto;
+    vertical-align: middle;
+}
+
+.icono-limpiar {
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+    vertical-align: middle;
+}
+
+/* Mensajes flash */
+.flash-message {
+    padding: 10px;
+    border-radius: 5px;
+    margin: 15px auto;
+    font-weight: bold;
+    max-width: 700px;
+    text-align: center;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+.info {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Mensaje cuando no hay datos */
+.mensaje-info {
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 15px;
+    background-color: #e0f7fa;
+    border-radius: 10px;
+    text-align: center;
+    font-style: italic;
+    color: #00796b;
+}
+
+/* Formularios con mejor separación */
+.form-busqueda, .form-reporte {
+    background-color: white;
+    padding: 20px 30px;
+    margin: 30px auto;
+    max-width: 700px;
+    border-radius: 15px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.form-busqueda input[type="text"] {
+    flex: 1 1 300px;
+    min-width: 180px;
+}
+
+.form-busqueda button,
+.form-reporte button {
+    background-color: #55e438;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-busqueda button:hover,
+.form-reporte button:hover {
+    background-color: #45c82d;
+}

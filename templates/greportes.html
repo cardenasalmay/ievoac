@@ -1,0 +1,58 @@
+{% include 'encabezado.html' %}
+
+<h2>Generar Reportes</h2>
+
+<form method="GET" action="{{ url_for('generar_reporte') }}">
+    <button type="submit" name="tipo" value="pdf">Generar PDF</button>
+    <button type="submit" name="tipo" value="excel">Generar Excel</button>
+</form>
+
+<h2>Reporte de registro</h2>
+
+{% if expedientes %}
+    <table class="tabla">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>CURP</th>
+                <th>Fecha Nac.</th>
+                <th>Edad</th>
+                <th>Talla</th>
+                <th>Sexo</th>
+                <th>Status</th>
+                <th>Tutor</th>
+                <th>Domicilio</th>
+                <th>Teléfono</th>
+                <th>Diagnóstico</th>
+                <th>Hospital</th>
+                <th>Archivo</th>
+                <th>Fecha Reg.</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for expediente in expedientes %}
+                <tr>
+                    {% for campo in expediente %}
+                        <td>{{ campo }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p class="mensaje-info">No hay expedientes para mostrar.</p>
+{% endif %}
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <div id="flash-container">
+      {% for category, message in messages %}
+        <div class="flash-message {{ category }}">{{ message }}</div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+
+</body>
+</html>
